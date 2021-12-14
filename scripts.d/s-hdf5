@@ -50,18 +50,15 @@ function s-hdf5-tar()
 function s-hdf5-build-depends()
 {
     echo os@-sphinx-common
-    echo os@-sphinx-intl
-
     echo s-cmake
 }
 
 function s-hdf5-mpi-depends()
 {
-    echo libopenmpi-dev
-    s-hdf5-depends
+    echo s-openmpi
 }
 
-function s-hdf5-depends()
+function s-hdf5-common-depends()
 {
     echo os@-zlib1g-dev
 }

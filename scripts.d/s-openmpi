@@ -1,8 +1,16 @@
 
 with-variant native os@-openmpi-dev \
-	     --env 'add-to-var MPI_ROOT_DIR $(get-os-lib openmpi)' \
-                   'add-to-var MPI_LIB $(get-os-lib openmpi/lib/libmpi.so)' \
-                   'add-to-var MPI_CXX_LIB $(get-os-lib openmpi/lib/libmpi_cxx.so)' \
-                   'add-to-var C_INCLUDE_PATH $(get-os-inc-dir openmpi/mpi.h)' \
-                   'add-to-var CPLUS_INCLUDE_PATH $(get-os-inc-dir openmpi/mpi.h)' \
-                   'add-to-var PATH $(get-os-bin-dir mpicc)'
+ --env 'add-to-var MPI_ROOT_DIR       $(get-os-lib openmpi)' \
+       'add-to-var MPI_LIB            $(get-os-lib openmpi/lib/libmpi.so)' \
+       'add-to-var MPI_CXX_LIB        $(get-os-lib openmpi/lib/libmpi_cxx.so)' \
+       'add-to-var C_INCLUDE_PATH     $(get-os-inc-dir openmpi/mpi.h)' \
+       'add-to-var CPLUS_INCLUDE_PATH $(get-os-inc-dir openmpi/mpi.h)' \
+       'add-to-var PATH               $(get-os-bin-dir mpicc)'
+
+with-variant gaia \
+ --env 'add-to-var MPI_ROOT_DIR       /usr/lib/x86_64-linux-gnu/openmpi' \
+       'add-to-var MPI_LIB            $MPI_ROOT_DIR/lib/libmpi.so' \
+       'add-to-var MPI_CXX_LIB        $MPI_ROOT_DIR/lib/libmpi.so' \
+       'add-to-var C_INCLUDE_PATH     $MPI_ROOT_DIR/include' \
+       'add-to-var CPLUS_INCLUDE_PATH $MPI_ROOT_DIR/include' \
+       'add-to-var PATH               /usr/bin/mpicc'
