@@ -1,0 +1,91 @@
+
+with-variant native \
+             os@-qt5-default os@-qtbase5-dev \
+             os@-qt5opengl5-dev os@-qt5printsupport5
+
+function s-qtw-vcs()
+{
+    echo edf
+    echo none
+    echo git
+    echo https://github.com/qt/qt5.git
+}
+
+function s-qtw-tar()
+{
+    local VERSION=$1
+
+    echo default
+    echo wget
+    echo https://minio.retd.edf.fr/salome/YAMM/Public/SALOME/sources/prerequis
+    echo qtw-$VERSION.tar.bz2
+}
+
+function s-qtw-build-depends()
+{
+    echo os@-autoconf
+}
+
+function s-qtw-env()
+{
+    local PREFIX=$1
+    local TARGET=$2
+
+    add-to-var QTW5_ROOT_DIR     $PREFIX
+    add-to-var CMAKE_PREFIX_PATH $PREFIX/lib/cmake
+
+    add-to-var PATH                        $PREFIX/bin
+    add-to-var LD_LIBRARY_PATH             $PREFIX/lib
+    add-to-var C_INCLUDE_PATH              $PREFIX/include
+    add-to-var CPLUS_INCLUDE_PATH          $PREFIX/include
+}
+
+function s-qtw-config-options()
+{
+    local PREFIX=$1
+    local TARGET=$2
+    local VARIANT=$3
+
+    echo --prefix=$PREFIX
+    echo -release
+    echo -opensource
+    echo -confirm-license
+    echo -no-rpath
+    echo -system-zlib
+    echo -system-libpng
+    echo -system-libjpeg
+    echo -skip qtwebengine
+    echo -no-optimized-qmake
+}
+
+function s-qtw-config()
+{
+    local PREFIX=$1
+    local TARGET=$2
+    local VARIANT=$3
+
+    local OPTIONS=( $(get-config-options $PREFIX $TARGET $VARIANT) )
+
+    ../src/configure ${OPTIONS[*]}
+}
+
+function s-qtw-build()
+{
+    local PREFIX=$1
+    local TARGET=$2
+
+    make -j$SCBI_JOBS
+}
+
+function s-qtw-install()
+{
+    local PREFIX=$1
+    local TARGET=$2
+
+    make install
+}
+
+function s-qtw-prefix()
+{
+    echo NONE
+}

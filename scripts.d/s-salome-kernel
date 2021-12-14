@@ -25,6 +25,11 @@ function s-salome-kernel-tar()
     echo salome-kernel-$VERSION.tar.xz
 }
 
+function s-salome-kernel-cluster-build-depends()
+{
+    echo s-cmake
+}
+
 function s-salome-kernel-build-depends()
 {
     echo os@-sphinx-common
