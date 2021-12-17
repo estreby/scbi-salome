@@ -51,15 +51,24 @@ function s-qt-env()
     add-to-var QT_QPA_PLATFORM_PLUGIN_PATH $PREFIX/plugins/platforms
 }
 
+# ../../src/configure -prefix "$PWD/../install" -opensource -confirm-license -nomake examples -nomake tests -system-zlib -system-libpng -system-libjpeg -no-rpath && make -j8
+
 function s-qt-config-options()
 {
     local PREFIX=$1
     local TARGET=$2
     local VARIANT=$3
 
-    echo --prefix=$PREFIX
+    echo -prefix $PREFIX
     echo -opensource
     echo -confirm-license
+    echo -system-zlib
+    echo -system-libpng
+    echo -system-libjpeg
+#    echo -openssl
+#    echo -qt-xcb
+    echo -no-rpath
+#    echo -xkbcommon
     echo -nomake examples
     echo -nomake tests
 }
@@ -70,9 +79,13 @@ function s-qt-config()
     local TARGET=$2
     local VARIANT=$3
 
+    IFS=$'\n'
+
     local OPTIONS=( $(get-config-options $PREFIX $TARGET $VARIANT) )
 
     ../src/configure ${OPTIONS[*]}
+
+    unset IFS
 }
 
 function s-qt-build()
