@@ -1,0 +1,9 @@
+# This plan is to build some modules on top of a SALOME binary distribution
+
+@load ng-dev
+
+s-cmake:#3.14.4
+
+[ = deb,9
+	s-salome-configuration:skip
+]
