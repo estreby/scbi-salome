@@ -4,9 +4,12 @@
 
 s-cmake:#3.14.4
 s-libecw2:#
-s-hydrogeo/ng:V2_3
+s-hydrogeo/ng:yan/scbi
+#s-hydrogeo_solver/ng:master
+#s-telemac/ng:main
 
 [ = deb,10
 	s-cmake:skip
+        s-hydrogeo/ng:master
 ]
 
