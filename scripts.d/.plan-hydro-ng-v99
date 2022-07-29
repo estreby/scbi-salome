@@ -8,7 +8,7 @@ s-hydrogeo/ng:yan/scbi
 #s-hydrogeo_solver/ng:master
 #s-telemac/ng:main
 #s-cloudcompare:#2.10.3edf
-#s-mumps:#4-10.0
+s-mumps:#4-10.0
 s-scalapack:#2.0.2
 
 [ = deb,10
