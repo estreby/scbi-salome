@@ -1,0 +1,59 @@
+
+function s-gotm-tar()
+{
+    local VERSION=$1
+
+    echo default
+    echo none
+    echo wget
+    echo https://minio.retd.edf.fr/salome/YAMM/Public/SALOME/sources/prerequis
+    echo gotm-$VERSION.tar.gz
+}
+
+function s-gotm-build-depends()
+{
+    echo cmake
+}
+
+function s-gotm-env()
+{
+    local PREFIX=$1
+    local TARGET=$2
+
+    set-var    GOTMDIR          $PREFIX
+    set-var    GOTMDIR_ROOT_DIR $PREFIX
+    add-to-var LD_LIBRARY_PATH       $PREFIX/lib
+}
+
+function s-gotm-config()
+{
+
+    local PREFIX=$1
+    local TARGET=$2
+
+    cmake -DCMAKE_INSTALL_PREFIX=$PREFIX \
+          -DGOTM_USE_NetCDF=off \
+          -DBUILD_SHARED_LIBS=TRUE \
+          ../src
+}
+
+function s-gotm-build()
+{
+    local PREFIX=$1
+    local TARGET=$2
+
+    make -j1
+}
+
+function s-gotm-install()
+{
+    local PREFIX=$1
+    local TARGET=$2
+
+    make install
+}
+
+function s-gotm-prefix()
+{
+    echo NONE
+}

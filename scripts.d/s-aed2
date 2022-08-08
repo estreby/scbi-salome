@@ -1,0 +1,58 @@
+
+function s-aed2-tar()
+{
+    local VERSION=$1
+
+    echo default
+    echo none
+    echo wget
+    echo https://minio.retd.edf.fr/salome/YAMM/Public/SALOME/sources/prerequis
+    echo aed2_$VERSION.tgz
+}
+
+function s-aed2-out-of-tree()
+{
+    echo false
+}
+
+function s-aed2-env()
+{
+    local PREFIX=$1
+    local TARGET=$2
+
+    set-var    AED2DIR           $PREFIX
+    set-var    MUMPSDIR_ROOT_DIR $PREFIX
+    add-to-var LD_LIBRARY_PATH   $PREFIX/lib
+}
+
+function s-aed2-build()
+{
+    local PREFIX=$1
+    local TARGET=$2
+
+    make -j1
+}
+
+function s-aed2-install()
+{
+    local PREFIX=$1
+    local TARGET=$2
+
+    mkdir -p $PREFIX/include && \
+    cp -pv *.mod $PREFIX/include && \
+    cp -pv include/* $PREFIX/include && \
+    mkdir $PREFIX/lib && \
+    cp -pv libaed2.* $PREFIX/lib
+
+#    self.specific_install_command = \
+#            " mkdir -p {aed2_dir}/include && "\
+#            "cp -v *.mod {aed2_dir}/include && "\
+#            "cp -v include/* {aed2_dir}/include && "\
+#            "mkdir {aed2_dir}/lib && "\
+#            "cp -v libaed2.* {aed2_dir}/lib ".format(aed2_dir=self.install_directory)
+}
+
+function s-aed2-prefix()
+{
+    echo NONE
+}
