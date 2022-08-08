@@ -25,9 +25,9 @@ function s-mumps-env()
     local PREFIX=$1
     local TARGET=$2
 
-    set-var    SCALAPACKDIR          $PREFIX
-    set-var    SCALAPACKDIR_ROOT_DIR $PREFIX
-    add-to-var LD_LIBRARY_PATH       $PREFIX/lib
+    set-var    MUMPSDIR          $PREFIX
+    set-var    MUMPSDIR_ROOT_DIR $PREFIX
+    add-to-var LD_LIBRARY_PATH   $PREFIX/lib
 }
 
 function s-mumps-config()
