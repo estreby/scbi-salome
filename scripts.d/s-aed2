@@ -15,6 +15,11 @@ function s-aed2-out-of-tree()
     echo false
 }
 
+function s-aed2-ng-depends()
+{
+    echo s-salome-bin
+}
+
 function s-aed2-env()
 {
     local PREFIX=$1
@@ -22,7 +27,21 @@ function s-aed2-env()
 
     set-var    AED2DIR           $PREFIX
     set-var    AED2_ROOT_DIR     $PREFIX
+
     add-to-var LD_LIBRARY_PATH   $PREFIX/lib
+}
+
+function s-aed2-build-env()
+{
+    set-var    FC                /home/es4c769n/v99/build-hydro-ng-v99/s-salome-tar/x86_64-linux-gnu-default/install/BINARIES-DB09/gcc/bin/gfortran
+    set-var    OPENMPIDIR "/home/es4c769n/v99/build-hydro-ng-v99/s-salome-tar/x86_64-linux-gnu-default/install/BINARIES-DB09/openmpi"
+    set-var    OPAL_PREFIX "/home/es4c769n/v99/build-hydro-ng-v99/s-salome-tar/x86_64-linux-gnu-default/install/BINARIES-DB09/openmpi"
+    set-var    MPI_ROOT_DIR "/home/es4c769n/v99/build-hydro-ng-v99/s-salome-tar/x86_64-linux-gnu-default/install/BINARIES-DB09/openmpi"
+    set-var    MPI_ROOT "/home/es4c769n/v99/build-hydro-ng-v99/s-salome-tar/x86_64-linux-gnu-default/install/BINARIES-DB09/openmpi"
+    set-var    MPI_INCLUDE_DIR "/home/es4c769n/v99/build-hydro-ng-v99/s-salome-tar/x86_64-linux-gnu-default/install/BINARIES-DB09/openmpi/include"
+    set-var    MPI_C_COMPILER "/home/es4c769n/v99/build-hydro-ng-v99/s-salome-tar/x86_64-linux-gnu-default/install/BINARIES-DB09/openmpi/bin/mpicc"
+    set-var    MPI_CXX_COMPILER "/home/es4c769n/v99/build-hydro-ng-v99/s-salome-tar/x86_64-linux-gnu-default/install/BINARIES-DB09/openmpi/bin/mpicxx"
+    set-var    MPI_C_FOUND "/home/es4c769n/v99/build-hydro-ng-v99/s-salome-tar/x86_64-linux-gnu-default/install/BINARIES-DB09/openmpi/lib/libmpi.so"
 }
 
 function s-aed2-build()
