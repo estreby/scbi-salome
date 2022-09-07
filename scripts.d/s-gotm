@@ -21,7 +21,7 @@ function s-gotm-env()
     local TARGET=$2
 
     set-var    GOTMDIR          $PREFIX
-    set-var    GOTMDIR_ROOT_DIR $PREFIX
+    set-var    GOTM_ROOT_DIR    $PREFIX
     add-to-var LD_LIBRARY_PATH       $PREFIX/lib
 }
 

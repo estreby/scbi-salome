@@ -21,7 +21,7 @@ function s-aed2-env()
     local TARGET=$2
 
     set-var    AED2DIR           $PREFIX
-    set-var    MUMPSDIR_ROOT_DIR $PREFIX
+    set-var    AED2_ROOT_DIR     $PREFIX
     add-to-var LD_LIBRARY_PATH   $PREFIX/lib
 }
 

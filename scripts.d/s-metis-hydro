@@ -26,7 +26,7 @@ function s-metis-hydro-env()
     local TARGET=$2
 
     set-var    METIS_ROOT_DIR    $PREFIX
-    set-var    METISDIR          $PREFIX
+    set-var    METIS_HYDRODIR    $PREFIX
 
     add-to-var PATH              $PREFIX/bin
 
