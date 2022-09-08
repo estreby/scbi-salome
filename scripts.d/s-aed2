@@ -15,7 +15,7 @@ function s-aed2-out-of-tree()
     echo false
 }
 
-function s-aed2-ng-depends()
+function s-aed2-ng-build-depends()
 {
     echo s-salome-bin
 }
@@ -29,11 +29,6 @@ function s-aed2-env()
     set-var    AED2_ROOT_DIR     $PREFIX
 
     add-to-var LD_LIBRARY_PATH   $PREFIX/lib
-}
-
-function s-aed2-build-env()
-{
-    set-var    F90 /home/es4c769n/v99/build-hydro-ng-v99/s-salome-tar/x86_64-linux-gnu-default/install/BINARIES-DB09/gcc/bin/gfortran
 }
 
 function s-aed2-build()
