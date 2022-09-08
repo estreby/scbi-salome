@@ -33,15 +33,7 @@ function s-aed2-env()
 
 function s-aed2-build-env()
 {
-    set-var    FC                /home/es4c769n/v99/build-hydro-ng-v99/s-salome-tar/x86_64-linux-gnu-default/install/BINARIES-DB09/gcc/bin/gfortran
-    set-var    OPENMPIDIR "/home/es4c769n/v99/build-hydro-ng-v99/s-salome-tar/x86_64-linux-gnu-default/install/BINARIES-DB09/openmpi"
-    set-var    OPAL_PREFIX "/home/es4c769n/v99/build-hydro-ng-v99/s-salome-tar/x86_64-linux-gnu-default/install/BINARIES-DB09/openmpi"
-    set-var    MPI_ROOT_DIR "/home/es4c769n/v99/build-hydro-ng-v99/s-salome-tar/x86_64-linux-gnu-default/install/BINARIES-DB09/openmpi"
-    set-var    MPI_ROOT "/home/es4c769n/v99/build-hydro-ng-v99/s-salome-tar/x86_64-linux-gnu-default/install/BINARIES-DB09/openmpi"
-    set-var    MPI_INCLUDE_DIR "/home/es4c769n/v99/build-hydro-ng-v99/s-salome-tar/x86_64-linux-gnu-default/install/BINARIES-DB09/openmpi/include"
-    set-var    MPI_C_COMPILER "/home/es4c769n/v99/build-hydro-ng-v99/s-salome-tar/x86_64-linux-gnu-default/install/BINARIES-DB09/openmpi/bin/mpicc"
-    set-var    MPI_CXX_COMPILER "/home/es4c769n/v99/build-hydro-ng-v99/s-salome-tar/x86_64-linux-gnu-default/install/BINARIES-DB09/openmpi/bin/mpicxx"
-    set-var    MPI_C_FOUND "/home/es4c769n/v99/build-hydro-ng-v99/s-salome-tar/x86_64-linux-gnu-default/install/BINARIES-DB09/openmpi/lib/libmpi.so"
+    set-var    F90 /home/es4c769n/v99/build-hydro-ng-v99/s-salome-tar/x86_64-linux-gnu-default/install/BINARIES-DB09/gcc/bin/gfortran
 }
 
 function s-aed2-build()
@@ -62,13 +54,6 @@ function s-aed2-install()
     cp -pv include/* $PREFIX/include && \
     mkdir $PREFIX/lib && \
     cp -pv libaed2.* $PREFIX/lib
-
-#    self.specific_install_command = \
-#            " mkdir -p {aed2_dir}/include && "\
-#            "cp -v *.mod {aed2_dir}/include && "\
-#            "cp -v include/* {aed2_dir}/include && "\
-#            "mkdir {aed2_dir}/lib && "\
-#            "cp -v libaed2.* {aed2_dir}/lib ".format(aed2_dir=self.install_directory)
 }
 
 function s-aed2-prefix()

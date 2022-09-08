@@ -10,7 +10,12 @@ function s-gotm-tar()
     echo gotm-$VERSION.tar.gz
 }
 
-function s-gotm-build-depends()
+function s-gotm-ng-depends()
+{
+    echo s-salome-bin
+}
+
+function s-gotm-common-build-depends()
 {
     echo cmake
 }
@@ -23,6 +28,14 @@ function s-gotm-env()
     set-var    GOTMDIR          $PREFIX
     set-var    GOTM_ROOT_DIR    $PREFIX
     add-to-var LD_LIBRARY_PATH       $PREFIX/lib
+}
+
+function s-gotm-build-env()
+{
+    set-var    F90      /home/es4c769n/v99/build-hydro-ng-v99/s-salome-tar/x86_64-linux-gnu-default/install/BINARIES-DB09/gcc/bin/gfortran
+    set-var    gfortran /home/es4c769n/v99/build-hydro-ng-v99/s-salome-tar/x86_64-linux-gnu-default/install/BINARIES-DB09/gcc/bin/gfortran
+    set-var    F77      /home/es4c769n/v99/build-hydro-ng-v99/s-salome-tar/x86_64-linux-gnu-default/install/BINARIES-DB09/gcc/bin/gfortran
+    set-var    F95      /home/es4c769n/v99/build-hydro-ng-v99/s-salome-tar/x86_64-linux-gnu-default/install/BINARIES-DB09/gcc/bin/gfortran
 }
 
 function s-gotm-config()

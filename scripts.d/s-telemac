@@ -1,0 +1,95 @@
+
+function s-telemac-vcs()
+{
+    echo default
+    echo none
+    echo git
+    echo https://gitlab.pam-retd.fr/otm/telemac-mascaret.git
+}
+
+function s-telemac-out-of-tree()
+{
+    echo false
+}
+
+function s-telemac-ng-depends()
+{
+    echo s-salome-bin
+}
+
+function s-telemac-common-depends()
+{
+    echo s-libecw2
+    echo s-metis-hydro
+    echo s-aed2
+    echo s-mumps
+    echo s-gotm
+    echo s-scalapack
+}
+
+function s-telemac-default-depends()
+{
+    echo os@-hdf5-dev
+    echo s-medfichier
+    echo s-eficas-tools
+}
+
+function s-telemac-env()
+{
+    local PREFIX=$1
+    local TARGET=$2
+
+    set-var        TELEMAC_ROOT_DIR     $PREFIX
+    set-var        TELEMAC_DIR          $PREFIX
+    set-var        HOMETEL              $PREFIX
+
+    set-var        systelcfg            "systel.salome.cfg"
+    set-var        usetelcfg            salomeHPC
+    set-var        SYSTELCFG            $PREFIX/configs/$systelcfg
+    set-var        USETELCFG            $usetelcfg
+
+    set-var        systelcfg_file       /home/es4c769n/Support/Outils/scbi-salome_hydro/scripts.d/support/systel.salome.cfg
+
+    add-to-var LD_LIBRARY_PATH   $PREFIX/builds/$usetelcfg/wrap_api/lib
+    add-to-var LD_LIBRARY_PATH   $PREFIX/builds/$usetelcfg/lib
+
+    add-to-var PYTHONPATH        $PREFIX/builds/$usetelcfg/wrap_api/lib
+    add-to-var PYTHONPATH        $PREFIX/scripts/python3
+
+    add-to-var PATH              $PREFIX/scripts/python3
+}
+
+function s-telemac-build()
+{
+    local PREFIX=$1
+    local TARGET=$2
+
+    echo $MUMPSDIR
+    echo $SCALAPACKDIR
+    echo $GOTMDIR
+    echo $MEDFILE_ROOT_DIR
+    echo $AED2DIR
+
+    systelcfg="systel.salome.cfg"
+    usetelcfg=salomeHPC
+    systelcfg_file=/home/es4c769n/Support/Outils/scbi-salome_hydro/scripts.d/support/systel.salome.cfg
+    cp -rp $systelcfg_file ../src/configs/ && \
+    ../src/scripts/python3/compile_telemac.py --clean \
+    -c $usetelcfg -f ../src/configs/$systelcfg && \
+    export LD_LIBRARY_PATH=../src/builds/$usetelcfg/lib:$LD_LIBRARY_PATH && \
+    ../src/scripts/python3/damocles.py --eficas -c $usetelcfg -f ../src/configs/$systelcfg && \
+    cp -pr ../src/scripts/python3/eficas/* $EFICAS_ROOT/Telemac/
+}
+
+function s-telemac-install()
+{
+    local PREFIX=$1
+    local TARGET=$2
+
+    cd ../src && git lfs install && git lfs checkout && cp -pr ../src/* $CURRENT_SOFTWARE_INSTALL_DIR
+}
+
+function s-telemac-prefix()
+{
+    echo NONE
+}
