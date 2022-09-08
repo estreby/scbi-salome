@@ -78,6 +78,7 @@ function s-telemac-build()
     -c $usetelcfg -f ../src/configs/$systelcfg && \
     export LD_LIBRARY_PATH=../src/builds/$usetelcfg/lib:$LD_LIBRARY_PATH && \
     ../src/scripts/python3/damocles.py --eficas -c $usetelcfg -f ../src/configs/$systelcfg && \
+    mkdir -p $EFICAS_ROOT/Telemac && \
     cp -pr ../src/scripts/python3/eficas/* $EFICAS_ROOT/Telemac/
 }
 
@@ -86,7 +87,8 @@ function s-telemac-install()
     local PREFIX=$1
     local TARGET=$2
 
-    cd ../src && git lfs install && git lfs checkout && cp -pr ../src/* $CURRENT_SOFTWARE_INSTALL_DIR
+    mkdir $PREFIX
+    cd ../../../.vcs/telemac-mascaret && git lfs install && git lfs fetch && cp -pr * $PREFIX/
 }
 
 function s-telemac-prefix()
