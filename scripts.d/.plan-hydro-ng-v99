@@ -5,7 +5,7 @@
 s-cmake:#3.14.4
 s-libecw2:#
 s-hydrogeo/ng:yan/scbi
-#s-hydrosolver/ng:master
+s-hydrosolver/ng:master
 #s-cloudcompare:#2.10.3edf
 s-mumps:#4-10.0
 s-scalapack:#2.0.2
