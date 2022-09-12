@@ -69,6 +69,104 @@ function s-python-modules-lxml-config-options()
     echo lxml
 }
 
+function s-python-modules-cppy-config-options()
+{
+    echo cppy
+}
+
+function s-python-modules-traitlets-config-options()
+{
+    echo traitlets
+}
+
+function s-python-modules-nbformat-config-options()
+{
+    echo nbformat
+}
+
+function s-python-modules-jupyter-client-config-options()
+{
+    echo jupyter-client
+}
+
+function s-python-modules-jupyter-console-config-options()
+{
+    echo jupyter-console
+}
+
+function s-python-modules-jupyter-config-options()
+{
+    echo jupyter
+}
+
+function s-python-modules-ipython-config-options()
+{
+    echo ipython
+}
+
+function s-python-modules-ipywidgets-config-options()
+{
+    echo ipywidgets
+}
+
+function s-python-modules-owslib-config-options()
+{
+    echo owslib
+}
+
+function s-python-modules-pyproj-config-options()
+{
+    echo pyproj
+}
+
+function s-python-modules-pyshp-config-options()
+{
+    echo pyshp
+}
+
+function s-python-modules-geopandas-config-options()
+{
+    echo geopandas
+}
+
+function s-python-modules-descartes-config-options()
+{
+    echo descartes
+}
+
+function s-python-modules-fiona-config-options()
+{
+    echo fiona==1.8.20
+}
+
+function s-python-modules-openpyxl-config-options()
+{
+    echo openpyxl==3.0.9
+}
+
+function s-python-modules-shapely-config-options()
+{
+    echo shapely
+}
+
+function s-python-modules-rasterio-config-options()
+{
+    echo rasterio==1.1.0
+}
+
+function s-python-modules-pylint-config-options()
+{
+    echo pylint
+}
+
+function s-python-modules-doxypypy-config-options()
+{
+    echo doxypypy
+}
+
+#scbi/scbi --store PIP_INDEX https://nexus.retd.edf.fr/repository/pypi-all/pypi
+#scbi/scbi --store PIP_TRUSTED_HOST nexus.retd.edf.fr
+
 function s-python-modules-pre-config()
 {
     rm -f module.list
@@ -93,8 +191,9 @@ function s-python-modules-pre-install()
     PYPIURL=$(scbi-store-get-key PYPIURL)
 
     mkdir -p $PREFIX/lib/python$PYTHON_VERSION/site-packages
-    echo "[easy_install]" > setup.cfg
-    echo "index-url = $PYPIURL" >> setup.cfg
+    # To not use nexus
+    #echo "[easy_install]" > setup.cfg
+    #echo "index-url = $PYPIURL" >> setup.cfg
 }
 
 function s-python-modules-install()
