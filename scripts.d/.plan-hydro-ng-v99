@@ -13,9 +13,8 @@ s-gotm/ng:#2019-06-14-edf
 s-aed2/ng:#1.2
 s-metis-hydro:#5.1.0
 s-telemac/ng:main
-s-python-modules/ng.cppy.traitlets.nbformat.jupyter-client.jupyter-console.jupyter.ipython.ipywidgets.owslib.pyproj.pyshp.geopandas.descartes.fiona.openpyxl.shapely.rasterio.pylint.doxypypy:master
-#(GDAL >= 3.1 is required for rasterio.)(GDAL >= 3.1 is required for fiona.)
-# 
+s-python-modules/ng.telemac:master
+
 [ = deb,10
 	s-cmake:skip
         s-hydrogeo/ng:master

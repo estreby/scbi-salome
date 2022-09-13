@@ -69,98 +69,26 @@ function s-python-modules-lxml-config-options()
     echo lxml
 }
 
-function s-python-modules-cppy-config-options()
+function s-python-modules-telemac-config-options()
 {
     echo cppy
-}
-
-function s-python-modules-traitlets-config-options()
-{
     echo traitlets
-}
-
-function s-python-modules-nbformat-config-options()
-{
     echo nbformat
-}
-
-function s-python-modules-jupyter-client-config-options()
-{
-    echo jupyter-client
-}
-
-function s-python-modules-jupyter-console-config-options()
-{
-    echo jupyter-console
-}
-
-function s-python-modules-jupyter-config-options()
-{
-    echo jupyter
-}
-
-function s-python-modules-ipython-config-options()
-{
+    #echo jupyter-client==7.0.6
+    #echo jupyter-console
+    #echo jupyter
     echo ipython
-}
-
-function s-python-modules-ipywidgets-config-options()
-{
-    echo ipywidgets
-}
-
-function s-python-modules-owslib-config-options()
-{
+    #echo ipywidgets
     echo owslib
-}
-
-function s-python-modules-pyproj-config-options()
-{
-    echo pyproj
-}
-
-function s-python-modules-pyshp-config-options()
-{
+    #echo pyproj==1.9.6
     echo pyshp
-}
-
-function s-python-modules-geopandas-config-options()
-{
-    echo geopandas
-}
-
-function s-python-modules-descartes-config-options()
-{
+    #echo geopandas==0.6.3
     echo descartes
-}
-
-function s-python-modules-fiona-config-options()
-{
     echo fiona==1.8.20
-}
-
-function s-python-modules-openpyxl-config-options()
-{
-    echo openpyxl==3.0.9
-}
-
-function s-python-modules-shapely-config-options()
-{
-    echo shapely
-}
-
-function s-python-modules-rasterio-config-options()
-{
+    echo openpyxl
+    #echo shapely==1.8.0
     echo rasterio==1.1.0
-}
-
-function s-python-modules-pylint-config-options()
-{
-    echo pylint
-}
-
-function s-python-modules-doxypypy-config-options()
-{
+    #echo pylint
     echo doxypypy
 }
 
