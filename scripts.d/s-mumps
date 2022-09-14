@@ -31,12 +31,12 @@ function s-mumps-env()
     add-to-var LD_LIBRARY_PATH   $PREFIX/lib
 }
 
-function s-mumps-config()
+function s-mumps-pre-config()
 {
     local PREFIX=$1
     local TARGET=$2
 
-    cp /home/es4c769n/Support/Outils/scbi-salome_hydro/scripts.d/patches/mumps_Makefile.inc ../src/Makefile.inc
+    cp $SCBI_PLUGINS/support/mumps_Makefile.inc ../src/Makefile.inc
 }
 
 function s-mumps-build()
