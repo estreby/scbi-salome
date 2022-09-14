@@ -48,8 +48,6 @@ function s-telemac-env()
     set-var        SYSTELCFG            $PREFIX/configs/$systelcfg
     set-var        USETELCFG            $usetelcfg
 
-    set-var        systelcfg_file       /home/es4c769n/Support/Outils/scbi-salome_hydro/scripts.d/support/systel.salome.cfg
-
     add-to-var LD_LIBRARY_PATH   $PREFIX/builds/$usetelcfg/wrap_api/lib
     add-to-var LD_LIBRARY_PATH   $PREFIX/builds/$usetelcfg/lib
 
@@ -59,27 +57,30 @@ function s-telemac-env()
     add-to-var PATH              $PREFIX/scripts/python3
 }
 
+
+function s-telemac-build-env()
+{
+    set-var systelcfg "systel.salome.cfg"
+    set-var usetelcfg salomeHPC
+}
+
+function s-telemac-pre-config()
+{
+    local PREFIX=$1
+    local TARGET=$2
+
+    cp -rp $SCBI_PLUGINS/support/telemac_systel.salome.cfg ../src/configs/systel.salome.cfg
+}
+
 function s-telemac-build()
 {
     local PREFIX=$1
     local TARGET=$2
 
-    echo $MUMPSDIR
-    echo $SCALAPACKDIR
-    echo $GOTMDIR
-    echo $MEDFILE_ROOT_DIR
-    echo $AED2DIR
-
-    systelcfg="systel.salome.cfg"
-    usetelcfg=salomeHPC
-    systelcfg_file=/home/es4c769n/Support/Outils/scbi-salome_hydro/scripts.d/support/systel.salome.cfg
-    cp -rp $systelcfg_file ../src/configs/ && \
     ../src/scripts/python3/compile_telemac.py --clean \
     -c $usetelcfg -f ../src/configs/$systelcfg && \
     export LD_LIBRARY_PATH=../src/builds/$usetelcfg/lib:$LD_LIBRARY_PATH && \
-    ../src/scripts/python3/damocles.py --eficas -c $usetelcfg -f ../src/configs/$systelcfg && \
-    mkdir -p $EFICAS_ROOT/Telemac && \
-    cp -pr ../src/scripts/python3/eficas/* $EFICAS_ROOT/Telemac/
+    ../src/scripts/python3/damocles.py --eficas -c $usetelcfg -f ../src/configs/$systelcfg
 }
 
 function s-telemac-install()
@@ -88,8 +89,17 @@ function s-telemac-install()
     local TARGET=$2
 
     mkdir $PREFIX
+    mkdir -p $EFICAS_ROOT/Telemac && \
+    cp -pr ../src/scripts/python3/eficas/* $EFICAS_ROOT/Telemac/
     cp -r * ../src/* $PREFIX/
-    cd ../../../.vcs/telemac-mascaret && git lfs install && git lfs fetch && cp -pr * $PREFIX/
+}
+
+function s-telemac-post-install()
+{
+    local PREFIX=$1
+    local TARGET=$2
+
+    cd ../../vcs && git lfs install && git lfs fetch && cp -pr * $PREFIX/
 }
 
 function s-telemac-prefix()
