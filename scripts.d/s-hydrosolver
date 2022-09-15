@@ -61,6 +61,14 @@ function s-hydrosolver-env()
     add-to-var SalomeAppConfig      $PREFIX/share/salome/resources/hydrosolver/
     add-to-var SALOME_MODULES       HYDROSOLVER
 }
+
+function s-salome-hydrosolver-ctest-dir()
+{
+    local PREFIX=$1
+
+    echo $PREFIX/bin/salome/test
+}
+
 function s-hydrosolver-config()
 {
 
