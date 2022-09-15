@@ -42,6 +42,7 @@ function s-telemac-env()
     set-var        TELEMAC_ROOT_DIR     $PREFIX
     set-var        TELEMAC_DIR          $PREFIX
     set-var        HOMETEL              $PREFIX
+    set-var        EFICAS_NOUVEAU_ROOT  "EFICAS_TOOLS_ROOT_DIR"
 
     set-var        systelcfg            "systel.salome.cfg"
     set-var        usetelcfg            salomeHPC
@@ -89,8 +90,8 @@ function s-telemac-install()
     local TARGET=$2
 
     mkdir $PREFIX
-    mkdir -p $EFICAS_ROOT/Telemac && \
-    cp -pr ../src/scripts/python3/eficas/* $EFICAS_ROOT/Telemac/
+    mkdir -p $EFICAS_TOOLS_ROOT_DIR/Telemac && \
+    cp -pr ../src/scripts/python3/eficas/* $EFICAS_TOOLS_ROOT_DIR/Telemac/
     cp -r * ../src/* $PREFIX/
 }
 
