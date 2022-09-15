@@ -94,6 +94,15 @@ function s-hydrosolver-install()
     make install
 }
 
+function s-hydrosolver-post-install()
+{
+    local PREFIX=$1
+    local TARGET=$2
+
+    cp $PREFIX/share/salome/resources/hydrosolver/SalomeApp.xml \
+       $PREFIX/share/salome/resources/hydrosolver/SalomeAppSL.xml
+}
+
 function s-hydrosolver-prefix()
 {
     echo NONE

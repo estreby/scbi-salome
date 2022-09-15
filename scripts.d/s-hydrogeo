@@ -96,6 +96,15 @@ function s-hydrogeo-install()
     make install
 }
 
+function s-hydrogeo-post-install()
+{
+    local PREFIX=$1
+    local TARGET=$2
+
+    cp $PREFIX/share/salome/resources/hydro/LightApp.xml \
+       $PREFIX/share/salome/resources/hydro/SalomeAppSL.xml
+}
+
 function s-hydrogeo-prefix()
 {
     echo NONE
