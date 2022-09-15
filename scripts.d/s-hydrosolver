@@ -58,11 +58,9 @@ function s-hydrosolver-env()
     add-to-var PYTHONPATH      \
                $PREFIX/lib/python$PYTHON_VERSION/site-packages/salome
 
-    add-to-var SalomeAppConfig      $PREFIX/share/salome/resources/hydrosolver
-
-    prepend-to-var SALOME_MODULES_ORDER HYDRO
+    add-to-var SalomeAppConfig      $PREFIX/share/salome/resources/hydrosolver/
+    add-to-var SALOME_MODULES       HYDROSOLVER
 }
-
 function s-hydrosolver-config()
 {
 
