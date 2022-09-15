@@ -31,6 +31,8 @@ function s-salome-main-modules()
     echo s-salome-openturns
     echo s-non-regression-tests
     echo s-clustertests
+    echo s-hydrogeo
+    echo s-hydrosolver
 }
 
 function s-salome-prerequisite-modules()
@@ -83,6 +85,13 @@ function s-salome-prerequisite-modules()
     echo s-openvkl
     echo s-zcracks
     echo s-cgns
+    echo s-libecw2
+    echo s-mumps
+    echo s-scalapack
+    echo s-gotm
+    echo s-aed2
+    echo s-metis-hydro
+    echo s-telemac
 }
 
 function s-salome-modules()
