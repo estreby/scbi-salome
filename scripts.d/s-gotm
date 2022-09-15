@@ -27,7 +27,10 @@ function s-gotm-env()
 
     set-var    GOTMDIR          $PREFIX
     set-var    GOTM_ROOT_DIR    $PREFIX
-    add-to-var LD_LIBRARY_PATH       $PREFIX/lib
+
+    add-to-var LD_LIBRARY_PATH  $PREFIX/lib
+
+    add-to-var PATH             $PREFIX/bin
 }
 
 function s-gotm-config()
