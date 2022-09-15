@@ -33,6 +33,15 @@ function s-salome-ng-modules()
     echo s-gnuplot-py
 
     echo s-meshgems
+    echo s-hydrogeo
+    echo s-hydrosolver
+    echo s-libecw2
+    echo s-mumps
+    echo s-scalapack
+    echo s-gotm
+    echo s-aed2
+    echo s-metis-hydro
+    echo s-telemac
 }
 
 function setup-salome-ng-env()
