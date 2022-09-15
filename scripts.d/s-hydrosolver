@@ -50,9 +50,16 @@ function s-hydrosolver-env()
     local PREFIX=$1
     local TARGET=$2
 
-    set-var        HYDROSOLVER_ROOT_DIR $PREFIX
-    set-var        HYDRO_DIR            $PREFIX
-    set-var        HYDRORes             $PREFIX/share/salome/resources/hydro
+    set-var    HYDROSOLVER_ROOT_DIR $PREFIX
+    set-var    HYDROSOLVER_DIR      $PREFIX
+
+    add-to-var PATH                 $PREFIX/bin/salome
+    add-to-var LD_LIBRARY_PATH      $PREFIX/lib/salome
+    add-to-var PYTHONPATH      \
+               $PREFIX/lib/python$PYTHON_VERSION/site-packages/salome
+
+    add-to-var SalomeAppConfig      $PREFIX/share/salome/resources/hydrosolver
+
     prepend-to-var SALOME_MODULES_ORDER HYDRO
 }
 
