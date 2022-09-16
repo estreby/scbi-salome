@@ -62,7 +62,7 @@ function s-hydrosolver-env()
     add-to-var SALOME_MODULES       HYDROSOLVER
 }
 
-function s-salome-hydrosolver-ctest-dir()
+function s-hydrosolver-ctest-dir()
 {
     local PREFIX=$1
 
