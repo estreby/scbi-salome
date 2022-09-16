@@ -65,7 +65,7 @@ function s-hydrogeo-env()
     add-to-var SALOME_MODULES    HYDRO
 }
 
-function s-salome-hydrogeo-ctest-dir()
+function s-hydrogeo-ctest-dir()
 {
     local PREFIX=$1
 
