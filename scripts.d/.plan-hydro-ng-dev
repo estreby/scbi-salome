@@ -13,7 +13,7 @@ s-python-modules/ng.wand.pyaml.pyproj.telemac.metadata.toml:master
 s-proj:#6.3.2
 
 [
-    s-hydro:master
+    s-hydro:yan/scbi
     s-hydrosolver:master
     s-gotm:#2019-06-14-edf
     s-aed2:#1.2
@@ -24,5 +24,4 @@ s-proj:#6.3.2
 
 [ = deb,10
 	s-cmake:skip
-        s-hydro/ng:master
 ]
