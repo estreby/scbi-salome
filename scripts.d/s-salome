@@ -11,6 +11,8 @@ function s-salome-hydro-modules()
     echo s-aed2
     echo s-metis-hydro
     echo s-telemac
+    echo s-geos
+    echo s-python3-numpy
 }
 
 function s-salome-cfd-modules()

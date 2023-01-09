@@ -46,6 +46,11 @@ function s-python-modules-pyproj-build-depends()
     echo s-proj
 }
 
+function s-python-modules-shapely-build-depends()
+{
+    echo s-geos
+}
+
 function s-python-modules-metadata-config-options()
 {
     echo importlib-metadata
@@ -59,6 +64,7 @@ function s-python-modules-toml-config-options()
 function s-python-modules-build-depends()
 {
     echo os@-python3-setuptools
+    echo s-python3-numpy
 }
 
 function s-python-modules-build-env()
@@ -96,7 +102,12 @@ function s-python-modules-pyaml-config-options()
 
 function s-python-modules-pyproj-config-options()
 {
-    echo pyproj==2.2.0
+    echo pyproj
+}
+
+function s-python-modules-shapely-config-options()
+{
+    echo s-geos
 }
 
 function s-python-modules-telemac-config-options()
@@ -108,25 +119,26 @@ function s-python-modules-telemac-config-options()
     echo owslib
     echo pyshp
     echo descartes
-    echo fiona==1.8.20
+    echo fiona
     echo openpyxl
-    echo rasterio==1.1.0
+    echo rasterio
     echo doxypypy
+    echo s-python3-numpy
 
-    echo jupyter-client==7.4.4
+    echo jupyter-client
     echo jupyter-console
     echo jupyter
     echo ipywidgets
-    echo geopandas==0.6.3
-    echo shapely==1.8.0
+    echo geopandas
+    echo shapely
     echo pylint
-    echo pygments==2.4.1
-    echo requests==2.28
-    echo packaging==21.3
-    echo pyzmq==24
-    echo python-dateutil==2.8.2
-    echo ypy-websocket==0.5.0
-    echo idna==2.8
+    echo pygments
+    echo requests
+    echo packaging
+    echo pyzmq
+    echo python-dateutil
+    echo ypy-websocket
+    echo idna
     echo y-py==0.5.3
 }
 
