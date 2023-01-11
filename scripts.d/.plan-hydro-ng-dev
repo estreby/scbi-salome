@@ -1,6 +1,6 @@
 # This plan is to build some modules on top of a SALOME binary distribution
 
-@load ng-dev
+@load ng-v910
 
 s-salome-ng/hydro:-dev
 
@@ -9,10 +9,9 @@ s-metis-hydro:#5.1.0
 s-python-modules/ng.wand.pyaml.pyproj.telemac.metadata.toml.shapely:master
 s-proj:#6.3.2
 s-geos:#3.7.1
-s-python3-numpy:#1.21.6
 
 [
-    s-hydro:yan/scbi
+    s-hydro:master
     s-hydrosolver:master
     s-gotm:#2019-06-14-edf
     s-aed2:#1.2
@@ -31,5 +30,5 @@ s-python3-numpy:#1.21.6
     s-cmake:skip
     s-hydro/ng:yan/scbi
     s-salome-ng/hydro:s10-dev
-    os@-python3-numpy:skip
+    os@-python3-numpy
 ]

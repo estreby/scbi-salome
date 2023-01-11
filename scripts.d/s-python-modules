@@ -64,7 +64,6 @@ function s-python-modules-toml-config-options()
 function s-python-modules-build-depends()
 {
     echo os@-python3-setuptools
-    echo s-python3-numpy
 }
 
 function s-python-modules-build-env()
@@ -123,14 +122,14 @@ function s-python-modules-telemac-config-options()
     echo openpyxl
     echo rasterio
     echo doxypypy
-    echo s-python3-numpy
+    echo pyproj
 
     echo jupyter-client
     echo jupyter-console
     echo jupyter
     echo ipywidgets
     echo geopandas
-    echo shapely
+    echo shapely==1.8.2
     echo pylint
     echo pygments
     echo requests
