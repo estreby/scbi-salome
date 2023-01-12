@@ -168,6 +168,9 @@ function s-python-modules-install()
     local PREFIX=$1
     local TARGET=$2
 
+    echo $PATH > $HOME/logpath
+    echo $LD_LIBRARY_PATH > $HOME/logldpath
+    echo $PYTHONPATH > $HOME/logpythonpath
     python3 setup.py install --prefix=$PREFIX
 }
 
