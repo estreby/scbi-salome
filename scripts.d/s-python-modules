@@ -101,7 +101,7 @@ function s-python-modules-pyaml-config-options()
 
 function s-python-modules-pyproj-config-options()
 {
-    echo pyproj
+    echo s-proj
 }
 
 function s-python-modules-shapely-config-options()
@@ -111,6 +111,7 @@ function s-python-modules-shapely-config-options()
 
 function s-python-modules-telemac-config-options()
 {
+    echo numpy
     echo cppy
     echo traitlets
     echo nbformat
@@ -120,7 +121,7 @@ function s-python-modules-telemac-config-options()
     echo descartes
     echo fiona
     echo openpyxl
-    echo rasterio
+    echo rasterio==1.2
     echo doxypypy
     echo pyproj
 

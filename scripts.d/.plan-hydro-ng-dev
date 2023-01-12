@@ -7,7 +7,7 @@ s-salome-ng/hydro:-dev
 s-libecw2:#
 s-metis-hydro:#5.1.0
 s-python-modules/ng.wand.pyaml.pyproj.telemac.metadata.toml.shapely:master
-s-proj:#6.3.2
+s-proj:#8.2.0
 s-geos:#3.7.1
 
 [
@@ -32,3 +32,5 @@ s-geos:#3.7.1
     s-salome-ng/hydro:s10-dev
     os@-python3-numpy
 ]
+#matplotlib 3.3.4
+#numpy 1.16.4
