@@ -112,7 +112,7 @@ function s-python-modules-telemac-config-options()
     echo openpyxl
     echo rasterio==1.2
     echo doxypypy
-    echo pyproj
+    echo pyproj==3.2.1
 
     echo jupyter-client
     echo jupyter-console
