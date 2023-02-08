@@ -65,6 +65,7 @@ function s-shaper-env()
     add-to-var PYTHONPATH      $PREFIX/lib/salome
     add-to-var PYTHONPATH      $PREFIX/bin/salome
     add-to-var SalomeAppConfig $PREFIX/share/salome/resources/shaper
+    add-to-var SALOME_MODULES  SHAPER
 }
 
 function s-shaper-ctest-dir()
@@ -72,6 +73,15 @@ function s-shaper-ctest-dir()
     local PREFIX=$1
 
     echo $PREFIX/bin/salome/test
+}
+
+function s-shaper-pre-config()
+{
+    local PREFIX=$1
+    local TARGET=$2
+
+    cp -r /home/es4c769n/Constructions/sam \
+       ../src/src/SAMConverter
 }
 
 function s-shaper-config()
