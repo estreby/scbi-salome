@@ -170,17 +170,17 @@ s-cgal/auto:v4.13
 # name is used on the different platforms.
 
 [ = deb,9
-        s-salome/default.core:s9-$CEA_VERSION
+        s-salome/default.core:s9-V9_12_0
         s-tbb/auto:#4.4.6
         s-gdal:skip
 ]
 
 [ = deb,10
-        s-salome/default.core:s10-$CEA_VERSION
+        s-salome/default.core:s10-V9_12_0
 ]
 
 [ = deb,11
-        s-salome/default.core:s11-$CEA_VERSION
+        s-salome/default.core:s11-V9_12_0
         # downgrade from 5.15.3 to 5.15.2 to use the native version
         s-pyqt/auto:#5.15.2
         s-opencv:#3.2.0       # native pkg is too recent
